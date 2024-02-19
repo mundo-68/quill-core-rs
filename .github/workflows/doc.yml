@@ -32,8 +32,8 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Run cargo doc
         run: RUSTDOCFLAGS="-D warnings --cfg docsrs" cargo doc --workspace --no-deps --all-features
-      - name: glue in an index
-        run: echo "<meta http-equiv=\"refresh\" content=\"0; url=delta\">" > target/doc/index.html
+#      - name: glue in an index
+#        run: echo "<meta http-equiv=\"refresh\" content=\"0; url=op_transform\">" > target/doc/index.html
       - name: Force correct file permissions
         run: |
           chmod -c +rX "target/doc/.lock" &
