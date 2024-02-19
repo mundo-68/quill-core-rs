@@ -1,0 +1,27 @@
+[package]
+name = "image"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+path = "src/mod.rs"
+
+[dependencies]
+anyhow = "1.0.79"
+delta =  {git = "https://github.com/mundo-68/quill-delta-rs.git" }
+dom = { path = "../../dom" }
+core_formats = { path = "../../core_formats" }
+log = "0.4"
+node_tree = { path = "../../node_tree" }
+once_cell = "1.10.0"
+
+[dependencies.web-sys]
+version = "0.3.57"
+features = [
+  "Element",
+]
+
+[dev-dependencies]
+op_transform = { path = "../../op_transform" }
+wasm-bindgen-test = "0.3"

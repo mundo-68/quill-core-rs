@@ -1,0 +1,49 @@
+# We split the document node from the document crate. Rationale: the dependencies of this
+# crate should be as limited as possible. When depending on op_transform, and render we
+# create cyclic dependencies. This is solved by making the document node a separate package.
+
+[package]
+name = "node_tree"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+path = "src/mod.rs"
+
+[dependencies]
+anyhow = "1.*"
+cfg-if = { version = "1.0.0", features = [] }
+console_log = { version = "0.2", optional = true }
+delta =  {git = "https://github.com/mundo-68/quill-delta-rs.git" }
+dom = { path = "../dom" }
+log = "0.4"
+# cfg-if = "1"
+once_cell = "1.*"
+# console_error_panic_hook = { version = "0.1.*", optional = true }
+tracing-wasm = "0.2.1"
+wasm-bindgen = "0.2.*"
+thiserror = "1.0.57"
+# thiserror = "1.0.56"
+
+[dependencies.web-sys]
+version = "0.3.57"
+features = [
+  "Node",
+  "Element",
+  "Selection",
+  "Range",
+  "Text",
+]
+
+[features]
+default = ["console_log"] # ,"console_error_panic_hook", "wasm-bindgen/enable-interning"]
+test_export = []
+
+[dev-dependencies]
+core_formats = { path = "../core_formats" }
+# enables the `test_export` feature
+node_tree = { path = "../node_tree", features = ["test_export"]}
+op_transform = { path = "../op_transform" , features = ["test_export"] }
+wasm-bindgen-test = "0.3"

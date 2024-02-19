@@ -1,0 +1,38 @@
+[package]
+name = "dom"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+name = "dom"
+path = "src/mod.rs"
+
+[dependencies]
+#cfg-if = "1"
+js-sys = "0.3.57"
+log = "0.4"
+wasm-bindgen = "0.2.74"
+anyhow = "1.0.79"
+
+[dependencies.web-sys]
+version = "0.3.57"
+features = [
+  "Document",
+  "Window",
+  "Attr", # needed to get Element.get_attributes()
+  "DomTokenList",
+  "Element",
+  "HtmlElement",
+  "NamedNodeMap", # needed to get Element.get_attributes()
+  "Node",
+  "NodeList",
+  "Selection",
+  "Range",
+  "Text",
+]
+
+[dev-dependencies]
+node_tree = { path = "../node_tree" }
+wasm-bindgen-test = "0.3"

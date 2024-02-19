@@ -1,0 +1,19 @@
+[package]
+name = "soft_break"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+path = "src/mod.rs"
+
+[dependencies]
+anyhow = "1.0.79"
+delta =  {git = "https://github.com/mundo-68/quill-delta-rs.git" }
+dom = { path = "../../dom" }
+log = "0.4"
+node_tree = { path = "../../node_tree" }
+
+[dev-dependencies]
+op_transform = { path = "../../op_transform" }
+wasm-bindgen-test = "0.3"

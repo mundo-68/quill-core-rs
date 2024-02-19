@@ -1,0 +1,18 @@
+
+[workspace]
+resolver = "2"
+members = [
+  # Core packages
+  "dom",
+  "node_tree",
+  "core_formats",
+  "op_transform",
+#  # Plug-in Block formats ...
+  "formats/code",
+  "formats/header",
+#  # Plug-in Line formats ...
+  "formats/image",
+  "formats/link",
+  "formats/list",
+  "formats/soft_break",
+]
