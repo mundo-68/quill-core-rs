@@ -8,7 +8,7 @@ The functionality provided by this package is:
  - Provide a set of formats that translate `Delta operations` to HTML `DOM`
 
 Documentation:
- - user docs: https://quill-core-rs.github.io
+ - user docs: https://mundo-68.github.io/quill-core-rs/
  - design docs; see `dev-docs` folder
 
 # Todo
